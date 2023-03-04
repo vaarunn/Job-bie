@@ -1,8 +1,9 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { FaBars, FaInfoCircle } from "react-icons/fa";
-import { RiContactsFill, RiDashboardFill } from "react-icons/ri";
+import { FaBars} from "react-icons/fa";
+import {  RiDashboardFill } from "react-icons/ri";
 import { BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
+import {VscDebugStepOut} from "react-icons/vsc"
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -17,26 +18,39 @@ const Sidebar = ({ children }) => {
     },
 
     {
+      path: "/jobs",
+      name: "All Jobs",
+      icon: <VscDebugStepOut />,
+    },
+    
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: <RiDashboardFill />,
+    },
+    
+    {
       path: "/about",
-      name: "About",
-      icon: <FaInfoCircle />,
+      name: "About Us",
+      icon: <RiDashboardFill />,
     },
 
     {
       path: "/contact",
       name: "Contact",
-      icon: <RiContactsFill />,
-    },
-
-    {
-      path: "/dashboard",
-      name: "Dashboard",
       icon: <RiDashboardFill />,
     },
 
     {
       path: "/login",
       name: "Login",
+      icon: <BiLogInCircle />,
+    },
+
+    
+    {
+      path: "/signUp",
+      name: "SignUp",
       icon: <BiLogInCircle />,
     },
 
