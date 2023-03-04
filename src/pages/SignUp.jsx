@@ -1,17 +1,16 @@
-
 import React, { useState } from "react";
 import login from "../img/log.jpg";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = (e) => {
+  const signUp = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
       })
@@ -26,8 +25,8 @@ const Login = () => {
         <img className="w-full h-[80%] object-cover" src={login} alt="" />
       </div>
       <div className="bg-gray-100 flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto bg-white p-4 "  onSubmit={signIn}>
-          <h2 className="text-4xl font-bold text-center py-6">JOB-BIE</h2>
+        <form className="max-w-[400px] w-full mx-auto bg-white p-4 "  onSubmit={signUp}>
+          <h2 className="text-4xl font-bold text-center py-6">Create an acccount</h2>
           <div className="flex flex-col py-2">
             <label>Email</label>
             <input
@@ -49,15 +48,14 @@ const Login = () => {
             />
           </div>
           <button className="border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-400 text-white ">
-            Sign In
+            Sign Up
           </button>
           <div className="flex justify-between">
             <p className="flex items-center">
               <input className="mr-2" type="checkbox" />
               Remember Me
             </p>
-            <Link to="/SignUp"> <p>Create an account</p></Link>
-           
+            <Link t0="/login">Sign In </Link>
           </div>
         </form>
       </div>
@@ -65,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
